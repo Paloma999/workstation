@@ -18,3 +18,7 @@ end
 describe package('tree') do
 it { should be_installed }
 end
+describe file('/etc/motd') do
+  its('content') { should match(/property of/) }
+  it { should be_owned_by 'root'  }
+end
